@@ -10,3 +10,9 @@ function Book(author, title, pages, progress) {
 function addBookToLibrary() {
 
 }
+
+function updateLibrary () {
+    for(let i = 0; i <= myLibrary.length; i++) {
+        
+    }
+}
