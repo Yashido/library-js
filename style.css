@@ -6,6 +6,8 @@
 
 body {
     background-color: #ffffff;
+    width: 100vw;
+    height: 100vh;
 }
 #header-wrapper {
     padding: 20px;
@@ -21,20 +23,30 @@ body {
     }
 
 .main-wrapper {
-    display: flex;
-    flex-direction: column;
+    
 }
-    .add-book-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .main-container {
 
-        font-size: large;
-
-        border-radius: 10px;
-
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 30px;
-        padding-right: 30px;
     }
+
+    .button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+        .add-book-btn {
+            font-size: large;
+
+            border-radius: 10px;
+            border: none;
+            background-color: #dde9eb;
+            
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .add-book-btn:hover {
+            background-color: antiquewhite;
+        }
