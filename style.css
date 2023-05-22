@@ -21,10 +21,17 @@ body {
     }
 
 .main-wrapper {
-
+    display: flex;
+    flex-direction: column;
 }
     .add-book-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         font-size: large;
+
+        border-radius: 10px;
 
         padding-top: 20px;
         padding-bottom: 20px;
