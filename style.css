@@ -26,7 +26,7 @@ body {
     
 }
     .main-container {
-
+        display: grid;
     }
 
     .button-container {
