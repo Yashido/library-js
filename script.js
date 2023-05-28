@@ -1,8 +1,4 @@
 let form = document.getElementsByClassName("book-submition");
-let bookTitle = document.getElementById("book-title").value;
-let bookAuthor = document.getElementById("book-author").value;
-let bookPages = document.getElementById("book-pages").value;
-let bookProgress = document.getElementById("book-progress").value;
 
 let title = document.querySelector("#book-title").value;
 let author = document.querySelector("#book-author").value;
