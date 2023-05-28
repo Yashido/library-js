@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Library - JS</title>
 </head>
 <body>
@@ -14,9 +15,9 @@
         <input type="number" name="book-pages" id="book-pages" placeholder="No. pages">
         <div class="book-progression-container">
             <label for="book-progess">Have you read it?</label>
-            <input type="checkbox" name="book-progress" id="book-progress" >
+            <input type="checkbox" name="book-progress" id="book-progress" value="1">
         </div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="submit" onclick="Book(author, title, pages, progress)">
     </form>
 </body>
 </html>
