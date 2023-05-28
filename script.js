@@ -8,7 +8,7 @@ function Book(author, title, pages, progress) {
 }
 
 function addBookToLibrary() {
-
+    
 }
 
 function updateLibrary () {
