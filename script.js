@@ -4,15 +4,19 @@ let bookAuthor = document.getElementById("book-author").value;
 let bookPages = document.getElementById("book-pages").value;
 let bookProgress = document.getElementById("book-progress").value;
 
-console.log(bookAuthor);
+let title = document.querySelector("#book-title").value;
+let author = document.querySelector("#book-author").value;
+let pages = document.querySelector("#book-pages").value;
+let progresion = document.querySelector("#book-progress").value;
+
 
 let myLibrary = [];
 
-function Book(bookTitle, bookAuthor, bookPages, bookProgress) {
-    this.bookTitle = bookTitle,
-    this.bookAuthor = bookAuthor,
-    this.bookPages = bookPages,
-    this.bookProgress = bookProgress
+function Book(title, author, pages, progresion) {
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.progression = progresion
 };
 
 /*
@@ -23,7 +27,7 @@ while(x != 9999999999999) {
 */
 
 
-function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookProgress) {
-    myLibrary.push(new Book(bookTitle, bookAuthor, bookPages, bookProgress));
+function addBookToLibrary() {
+    myLibrary.push(new Book(title, author, pages, progresion))
     console.log(myLibrary[0]);
 };
