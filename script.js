@@ -1,5 +1,5 @@
 let form = document.getElementsByClassName("book-submition");
-const submitBtn = document.ge
+const submitBtn = document.querySelector("#form-submit");
 
 let title = document.querySelector("#book-title").value;
 let author = document.querySelector("#book-author").value;
@@ -16,12 +16,6 @@ function Book(title, author, pages, progresion) {
     this.progression = progresion
 };
 
-/*
-let x = 0;
-while(x != 9999999999999) {
-    console.log(author);
-}
-*/
 
 
 function addBookToLibrary() {
