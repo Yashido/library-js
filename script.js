@@ -20,7 +20,7 @@ function Book(title, author, pages, progresion) {
 
 function addBookToLibrary() {
     myLibrary.push(new Book(title, author, pages, progresion))
-    console.log(myLibrary[]);
+    console.log(myLibrary[0]);
 };
 
 /* Form submit */
@@ -29,5 +29,6 @@ submitBtn.addEventListener("click", formButtonClick, false);
 
 function formButtonClick(event) {
     event.preventDefault();
-
-}
+    addBookToLibrary();
+    console.log("boo");
+};
