@@ -23,6 +23,10 @@ function addBookToLibrary() {
     console.log(myLibrary[0]);
 };
 
+function clearFormData() {
+
+}
+
 /* Form submit */
 
 submitBtn.addEventListener("click", formButtonClick, false);
