@@ -1,5 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header-wrapper {
+
+}
+    .header-logo {
+
+    }
 
 .book-submition {
     display: flex;
     flex-direction: column;
 }
+    #book-title, #book-author, #book-pages {
+        color: blue;
+    }
+
+        .book-progression-container {
+
+        }
+            #book-progres {
+
+            }
+        
+        #form-submit {
+            
+        }
