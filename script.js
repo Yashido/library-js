@@ -1,3 +1,4 @@
+const dialog = document.getElementsByClassName("dialog-container");
 let form = document.getElementsByClassName("book-submition");
 const submitBtn = document.querySelector("#form-submit");
 
@@ -24,11 +25,10 @@ function addBookToLibrary() {
 };
 
 function clearFormData() {
-
+    
 }
 
 /* Form submit */
-
 submitBtn.addEventListener("click", formButtonClick, false);
 
 function formButtonClick(event) {
