@@ -33,7 +33,7 @@ function clearFormData() {
 modalBtn.addEventListener("click",  showDialogModal, false);
 function showDialogModal(event) {
     dialog.showModal();
-    console.log("Boo")
+    
 }
 
 /* Form cancel & submit */
@@ -41,13 +41,13 @@ submitBtn.addEventListener("click", formButtonClick, false);
     function formButtonClick(event) {
         event.preventDefault();
         addBookToLibrary();
-        console.log("yay");
+        
     };
 
 cancelBtn.addEventListener("click", removeModal);
     function removeModal(event) {
         event.preventDefault();
         dialog.close();
-        console.log("nope")
+    
     }
 
