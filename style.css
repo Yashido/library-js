@@ -25,8 +25,21 @@ body {
     .dialog-button {
         
     }
-    .dialog-container {
-        
+.dialog-wrapper {
+    
+}
+    #dialog-container {
+        justify-content: center;
+    }
+    dialog {
+        position: relative;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+    }
+    dialog::backdrop {
+        background-color: rgba(rgb(0, 0, 0, 0.7);
     }
         .book-submition {
             display: flex;
@@ -43,6 +56,13 @@ body {
 
                     }
                 
+            .form-button-section {
+                display: flex;
+                flex-direction: row;
+            }
+                #form-cancel {
+
+                }
                 #form-submit {
                     
                 }

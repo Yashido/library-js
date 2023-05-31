@@ -1,6 +1,8 @@
 const dialog = document.getElementById("dialog-container");
 let form = document.getElementsByClassName("book-submition");
 const modalBtn = document.querySelector("#dialog-button");
+
+const cancelBtn = document.querySelector("#form-cancel");
 const submitBtn = document.querySelector("#form-submit");
 
 let title = document.querySelector("#book-title").value;
@@ -33,11 +35,19 @@ function showDialogModal(event) {
     dialog.showModal();
     console.log("Boo")
 }
-/* Form submit */
-submitBtn.addEventListener("click", formButtonClick, false);
 
-function formButtonClick(event) {
-    event.preventDefault();
-    addBookToLibrary();
-    console.log("boo");
-};
+/* Form cancel & submit */
+submitBtn.addEventListener("click", formButtonClick, false);
+    function formButtonClick(event) {
+        event.preventDefault();
+        addBookToLibrary();
+        console.log("yay");
+    };
+
+cancelBtn.addEventListener("click", removeModal);
+    function removeModal(event) {
+        event.preventDefault();
+        dialog.close();
+        console.log("nope")
+    }
+
