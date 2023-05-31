@@ -1,6 +1,6 @@
-const dialog = document.getElementsByClassName("dialog-container");
+const dialog = document.getElementById("dialog-container");
 let form = document.getElementsByClassName("book-submition");
-const modalBtn = document.getElementsByClassName("dialog-button");
+const modalBtn = document.querySelector("#dialog-button");
 const submitBtn = document.querySelector("#form-submit");
 
 let title = document.querySelector("#book-title").value;
@@ -28,9 +28,11 @@ function addBookToLibrary() {
 function clearFormData() {
     
 }
-modalBtn.addEventListener("click", (event) => {
+modalBtn.addEventListener("click",  showDialogModal, false);
+function showDialogModal(event) {
     dialog.showModal();
-});
+    console.log("Boo")
+}
 /* Form submit */
 submitBtn.addEventListener("click", formButtonClick, false);
 
