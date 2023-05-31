@@ -1,5 +1,6 @@
 const dialog = document.getElementsByClassName("dialog-container");
 let form = document.getElementsByClassName("book-submition");
+const modalBtn = document.getElementsByClassName("dialog-button");
 const submitBtn = document.querySelector("#form-submit");
 
 let title = document.querySelector("#book-title").value;
@@ -27,7 +28,9 @@ function addBookToLibrary() {
 function clearFormData() {
     
 }
-
+modalBtn.addEventListener("click", (event) => {
+    dialog.showModal();
+});
 /* Form submit */
 submitBtn.addEventListener("click", formButtonClick, false);
 
