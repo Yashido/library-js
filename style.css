@@ -29,13 +29,11 @@ body {
     
 }
     #dialog-container {
-        justify-content: center;
+        
     }
     dialog {
-        position: relative;
         padding: 20px;
-        align-items: center;
-        justify-content: center;
+        
         width: 200px;
     }
     dialog::backdrop {
