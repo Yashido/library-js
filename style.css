@@ -42,7 +42,7 @@ body {
         width: 200px;
     }
     dialog::backdrop {
-        background-color: rgba(rgb(0, 0, 0, 0.7);
+        background-color: rgb(0, 0, 0, 0.7);
     }
         .book-submition {
             display: flex;

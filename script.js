@@ -28,6 +28,7 @@ function addBookToLibrary() {
 };
 
 function clearFormData() {
+    document.querySelector("#book-title").innerHTML = "";
     
 }
 modalBtn.addEventListener("click",  showDialogModal, false);
