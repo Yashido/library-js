@@ -29,8 +29,11 @@ function addBookToLibrary() {
 
 function clearFormData() {
     document.querySelector("#book-title").innerHTML = "";
-    
+    document.querySelector("#book-author").innerHTML = "";
+    document.querySelector("#book-pages").innerHTML = "";
+    document.querySelector("#book-progress").innerHTML = "";
 }
+
 modalBtn.addEventListener("click",  showDialogModal, false);
 function showDialogModal(event) {
     dialog.showModal();
