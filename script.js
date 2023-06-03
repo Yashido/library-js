@@ -13,6 +13,16 @@ let progresion = document.querySelector("#book-progress").value;
 
 let myLibrary = [];
 
+function libraryBookIteration() {
+    myLibrary.forEach(bookCard);
+}
+
+function bookCard() {
+    const newDiv = document.createElement("div");
+    const bookContent = document.createTextNode(title);
+    
+}
+
 function Book(title, author, pages, progresion) {
     this.title = title,
     this.author = author,
@@ -32,9 +42,7 @@ function clearFormData() {
     document.querySelector("#book-progress").innerHTML = "";
 }
 
-function addBookCard() {
 
-}
 
 modalBtn.addEventListener("click",  showDialogModal, false);
 function showDialogModal(event) {
