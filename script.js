@@ -20,8 +20,6 @@ function Book(title, author, pages, progresion) {
     this.progression = progresion
 };
 
-
-
 function addBookToLibrary() {
     myLibrary.push(new Book(title, author, pages, progresion))
     console.log(myLibrary[0]);
@@ -32,6 +30,10 @@ function clearFormData() {
     document.querySelector("#book-author").innerHTML = "";
     document.querySelector("#book-pages").innerHTML = "";
     document.querySelector("#book-progress").innerHTML = "";
+}
+
+function addBookCard() {
+
 }
 
 modalBtn.addEventListener("click",  showDialogModal, false);
