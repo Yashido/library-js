@@ -18,9 +18,12 @@ function libraryBookIteration() {
 }
 
 function bookCard() {
-    const newDiv = document.createElement("div");
-    const bookContent = document.createTextNode(title);
+    if ( title != title) {
+        const newDiv = document.createElement("div");
+        const bookContent = document.createTextNode(title);
+    }
     
+
 }
 
 function Book(title, author, pages, progresion) {
