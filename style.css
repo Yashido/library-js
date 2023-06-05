@@ -15,9 +15,10 @@ body {
     .header-logo {
         display: flex;
         flex-direction: row;
+        align-items: center;
     }
-        .logo {
-
+        .logo-icon {
+            height: 5vh;
         }
         
         .logo-name {
