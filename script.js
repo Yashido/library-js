@@ -21,6 +21,9 @@ function bookCard() {
     if ( title != title) {
         const newDiv = document.createElement("div");
         const bookContent = document.createTextNode(title);
+        const b
+    } else {
+        return;
     }
     
 
