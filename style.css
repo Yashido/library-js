@@ -79,15 +79,27 @@ body {
         }
             #book-title, #book-author, #book-pages {
                 color: rgba(0, 133, 255, 0.8);
+                width: auto;
+                height: 30px;
+                
             }
 
                 .book-progression-container {
-
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
                 }
+                    .book-label {
+
+                    }
+
                     #book-progress {
 
                     }
-                
+                .form-button-section {
+                    display: flex;
+                    justify-content: space-between;
+                }
             .form-button-section {
                 display: flex;
                 flex-direction: row;
