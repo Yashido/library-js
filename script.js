@@ -1,3 +1,4 @@
+const mainContainer = document.getElementsByClassName("main-container");
 const dialog = document.getElementById("dialog-container");
 let form = document.getElementsByClassName("book-submition");
 const modalBtn = document.querySelector("#dialog-button");
@@ -20,13 +21,28 @@ function libraryBookIteration() {
 function bookCard() {
     if ( title != title) {
         const newDiv = document.createElement("div");
-        const bookContent = document.createTextNode(title);
-        const b
+            newDiv.classList.add("book-card-container")
+                mainContainer.appendChild(newDiv);
+        const bookTitleElement = document.createElement("h5");
+        const bookTitle = document.createTextNode(title);
+            bookTitleElement.classList.add("book-card-title");
+                newDiv.appendChild(bookTitleElement);
+                    bookTitleElement.appendChild(bookTitle);
+        const bookAuthorElement = document.createElement("h5");
+        const bookAuthor = document.createTextNode(author);
+
+        const bookPagesElement = document.createElement("h5");
+        const bookPages = document.createTextNode(pages);
+
+        const bookProgressElement = document.createElement("label")
+        const bookProgressCheckboxElement = document.createElement("input")
+        bookProgressCheckboxElement.setAttribute("type", "checkbox");
+        bookProgressCheckboxElement.setAttribute(progresion)
+
+
     } else {
         return;
     }
-    
-
 }
 
 function Book(title, author, pages, progresion) {
