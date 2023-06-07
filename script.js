@@ -30,7 +30,7 @@ function bookCard() {
                     bookTitleElement.appendChild(bookTitle);
         const bookAuthorElement = document.createElement("h5");
         const bookAuthor = document.createTextNode(author);
-
+            bookAuthorElement.classList.add("Author");
         const bookPagesElement = document.createElement("h5");
         const bookPages = document.createTextNode(pages);
 
