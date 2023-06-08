@@ -1,4 +1,4 @@
-const mainContainer = document.getElementsByClassName("main-container");
+const mainContainer = document.getElementsByClassName("main-container")[0];
 const dialog = document.getElementById("dialog-container");
 let form = document.getElementsByClassName("book-submition");
 const modalBtn = document.querySelector("#dialog-button");
@@ -6,14 +6,8 @@ const modalBtn = document.querySelector("#dialog-button");
 const cancelBtn = document.querySelector("#form-cancel");
 const submitBtn = document.querySelector("#form-submit");
 
-let title = document.querySelector("#book-title").value;
-let author = document.querySelector("#book-author").value;
-let pages = document.querySelector("#book-pages").value;
-let progresion = document.querySelector("#book-progress").value;
-
-
 let myLibrary = [ 
-        {
+    {
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
@@ -25,11 +19,9 @@ function libraryBookIteration() {
     myLibrary.forEach((book) => bookCard(book.title, book.author, book.pages, book.progression));
 }
 
-function bookCard(title, author, pages, progresion) {
-    if ( title === title) {
-        const mainContainer = document.getElementsByClassName("main-container");
+function bookCard(title, author, pages, progression) {
         const newDiv = document.createElement("div");
-            newDiv.classList.add("book-card-container")
+            newDiv.classList.add("book-card-container");
                 mainContainer.appendChild(newDiv);
         const bookTitleElement = document.createElement("h5");
         const bookTitle = document.createTextNode(title);
@@ -40,33 +32,39 @@ function bookCard(title, author, pages, progresion) {
         const bookAuthor = document.createTextNode(author);
             bookAuthorElement.classList.add("book-card-author");
                 newDiv.appendChild(bookAuthorElement);
+                    bookAuthorElement.appendChild(bookAuthor);
         const bookPagesElement = document.createElement("h5");
         const bookPages = document.createTextNode(pages);
-            bookPagesElement.classList.add("book-card-pages");
-                newDiv.appendChild(bookPagesElement);
-        const bookProgressElement = document.createElement("label")
-        const bookProgressCheckboxElement = document.createElement("input")
+                bookPagesElement.classList.add("book-card-pages");
+                    newDiv.appendChild(bookPagesElement);
+                        bookPagesElement.appendChild(bookPages);
+        const bookProgressElement = document.createElement("label");
+        const bookProgressCheckboxElement = document.createElement("input");
             bookProgressCheckboxElement.setAttribute("type", "checkbox");
-            bookProgressCheckboxElement.setAttribute(progresion);
-                bookProgressElement.classList.add("book-card-progress");
-                    newDiv.appendChild(bookProgressElement);
-    } else {
-        return console.log("Uh");
-    }
-}
+                bookProgressCheckboxElement.setAttribute("value", progression);
+                    bookProgressElement.classList.add("book-card-progress");
+                        newDiv.appendChild(bookProgressElement);
+                            bookProgressElement.appendChild(bookProgressCheckboxElement);
+    
+};
 
-function Book(title, author, pages, progresion) {
+
+function Book(title, author, pages, progression) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.progression = progresion
+    this.progression = progression
 };
 
 function addBookToLibrary() {
-    myLibrary.push(new Book(title, author, pages, progresion))
-    
-    console.log(myLibrary[0]);
-};
+    let title = document.querySelector("#book-title").value;
+    let author = document.querySelector("#book-author").value;
+    let pages = document.querySelector("#book-pages").value;
+    let progression = document.querySelector("#book-progress").value;
+    myLibrary.push(new Book(title, author, pages, progression));
+    bookCard(title, author, pages, progression);
+    console.log(myLibrary[myLibrary.length - 1]);
+}
 
 function clearFormData() {
     document.querySelector("#book-title").value = "";
@@ -75,29 +73,25 @@ function clearFormData() {
     document.querySelector("#book-progress").value = "";
 }
 
+modalBtn.addEventListener("click", showDialogModal);
 
-
-modalBtn.addEventListener("click",  showDialogModal, false);
 function showDialogModal(event) {
     dialog.showModal();
-    
+    submitBtn.addEventListener("click", formButtonClick, false);
+    cancelBtn.addEventListener("click", removeModal, false);
 }
 
-/* Form cancel & submit */
-submitBtn.addEventListener("click", formButtonClick, false);
-    function formButtonClick(event) {
-        event.preventDefault();
-        addBookToLibrary();
-        libraryBookIteration();
-        
-    };
+function formButtonClick(event) {
+    event.preventDefault();
+    addBookToLibrary();
+    libraryBookIteration();
+    clearFormData();
+}
 
-cancelBtn.addEventListener("click", removeModal);
-    function removeModal(event) {
-        event.preventDefault();
-        dialog.close();
-    
-    }
+function removeModal(event) {
+    event.preventDefault();
+    dialog.close();
+}
 
 dialog.addEventListener("click", (e) => {
     const dialogDimensions = dialog.getBoundingClientRect()
