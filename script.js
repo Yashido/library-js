@@ -12,7 +12,14 @@ let pages = document.querySelector("#book-pages").value;
 let progresion = document.querySelector("#book-progress").value;
 
 
-let myLibrary = [];
+let myLibrary = [ 
+        {
+        title: "The Hobbit",
+        author: "J. R. R. Tolkien",
+        pages: 300,
+        progression: true
+    }
+];
 
 function libraryBookIteration() {
     myLibrary.forEach(bookCard);
@@ -30,16 +37,18 @@ function bookCard() {
                     bookTitleElement.appendChild(bookTitle);
         const bookAuthorElement = document.createElement("h5");
         const bookAuthor = document.createTextNode(author);
-            bookAuthorElement.classList.add("Author");
+            bookAuthorElement.classList.add("book-card-author");
+                newDiv.appendChild(bookAuthorElement);
         const bookPagesElement = document.createElement("h5");
         const bookPages = document.createTextNode(pages);
-
+            bookPagesElement.classList.add("book-card-pages");
+                newDiv.appendChild(bookPagesElement);
         const bookProgressElement = document.createElement("label")
         const bookProgressCheckboxElement = document.createElement("input")
-        bookProgressCheckboxElement.setAttribute("type", "checkbox");
-        bookProgressCheckboxElement.setAttribute(progresion)
-
-
+            bookProgressCheckboxElement.setAttribute("type", "checkbox");
+            bookProgressCheckboxElement.setAttribute(progresion);
+                bookProgressElement.classList.add("book-card-progress");
+                    newDiv.appendChild(bookProgressElement);
     } else {
         return;
     }
