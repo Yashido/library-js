@@ -1,6 +1,6 @@
 const mainContainer = document.getElementsByClassName("main-container")[0];
 const dialog = document.getElementById("dialog-container");
-let form = document.getElementsByClassName("book-submition");
+let form = document.getElementsByClassName("book-submission");
 const modalBtn = document.querySelector("#dialog-button");
 
 const cancelBtn = document.querySelector("#form-cancel");
@@ -24,14 +24,14 @@ function libraryBookIteration() {
     });
   }
   
-  function findBookCardByTitle(title) {
+function findBookCardByTitle(title) {
     const bookCards = document.getElementsByClassName("book-card-title");
-    for (let i = 0; i < bookCards.length; i++) {
-      if (bookCards[i].textContent === title) {
-        return bookCards[i].parentNode;
-      }
-    }
-    return null;
+        for (let i = 0; i < bookCards.length; i++) {
+            if (bookCards[i].textContent === title) {
+                return bookCards[i].parentNode;
+                }
+            }
+                return null;
   }
   
 
@@ -54,14 +54,25 @@ function bookCard(title, author, pages, progression) {
                 bookPagesElement.classList.add("book-card-pages");
                     newDiv.appendChild(bookPagesElement);
                         bookPagesElement.appendChild(bookPages);
+        const bookCardDiv = document.createElement("div");
+        bookCardDiv.classList.add("book-card-progress")
+            newDiv.appendChild(bookCardDiv);
+        const bookProgressLabelElement = document.createElement("h5");
+            bookProgressLabelElement.classList.add("book-card-read");
+                bookProgressLabelElement.appendChild(document.createTextNode("Read"));
+                    bookCardDiv.appendChild(bookProgressLabelElement);
         const bookProgressElement = document.createElement("label");
         const bookProgressCheckboxElement = document.createElement("input");
             bookProgressCheckboxElement.setAttribute("type", "checkbox");
                 bookProgressCheckboxElement.setAttribute("value", progression);
                     bookProgressElement.classList.add("book-card-progress");
-                        newDiv.appendChild(bookProgressElement);
+                        bookCardDiv.appendChild(bookProgressElement);
                             bookProgressElement.appendChild(bookProgressCheckboxElement);
-    
+                bookProgressCheckboxElement.addEventListener("change", (event) => {
+                    const isChecked = event.target.checked;
+                    const formCheckbox = document.querySelector("#book-progress");
+                        formCheckbox.checked = isChecked;
+        });
 };
 
 
@@ -80,35 +91,38 @@ function addBookToLibrary() {
     myLibrary.push(new Book(title, author, pages, progression));
     bookCard(title, author, pages, progression);
     console.log(myLibrary[myLibrary.length - 1]);
-}
+};
 
 function clearFormData() {
     document.querySelector("#book-title").value = "";
     document.querySelector("#book-author").value = "";
     document.querySelector("#book-pages").value = "";
     document.querySelector("#book-progress").value = "";
-}
+};
 
 modalBtn.addEventListener("click", showDialogModal);
+submitBtn.addEventListener("click", formButtonClick);
+cancelBtn.addEventListener("click", removeModal);
 
 function showDialogModal(event) {
     dialog.showModal();
-    submitBtn.addEventListener("click", formButtonClick, false);
-    cancelBtn.addEventListener("click", removeModal, false);
-}
+    submitBtn.addEventListener("click", formButtonClick, { once: true });
+    cancelBtn.addEventListener("click", removeModal, { once: true });
+};
 
 function formButtonClick(event) {
     event.preventDefault();
     addBookToLibrary();
     libraryBookIteration();
     clearFormData();
-    dialog.close()
-}
+    console.log("Dialog should close")
+    dialog.close();
+};
 
 function removeModal(event) {
     event.preventDefault();
     dialog.close();
-}
+};
 
 dialog.addEventListener("click", (e) => {
     const dialogDimensions = dialog.getBoundingClientRect()
@@ -121,3 +135,17 @@ dialog.addEventListener("click", (e) => {
         dialog.close()
     }
 });
+
+function removeBook(title) {
+    const cardContainers = document.getElementsByClassName("book-card-container");
+    for (let i = 0; i < cardContainers.length; i++) {
+      const card = cardContainers[i];
+      const cardTitle = card.querySelector(".book-card-title").textContent;
+      if (cardTitle === title) {
+        card.remove();
+        break;
+      }
+    }
+    myLibrary = myLibrary.filter((book) => book.title !== title);
+  }
+  
