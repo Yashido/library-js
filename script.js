@@ -22,11 +22,12 @@ let myLibrary = [
 ];
 
 function libraryBookIteration() {
-    myLibrary.forEach(bookCard);
+    myLibrary.forEach((book) => bookCard(book.title, book.author, book.pages, book.progression));
 }
 
-function bookCard() {
-    if ( title != title) {
+function bookCard(title, author, pages, progresion) {
+    if ( title === title) {
+        const mainContainer = document.getElementsByClassName("main-container");
         const newDiv = document.createElement("div");
             newDiv.classList.add("book-card-container")
                 mainContainer.appendChild(newDiv);
@@ -50,7 +51,7 @@ function bookCard() {
                 bookProgressElement.classList.add("book-card-progress");
                     newDiv.appendChild(bookProgressElement);
     } else {
-        return;
+        return console.log("Uh");
     }
 }
 
@@ -63,14 +64,15 @@ function Book(title, author, pages, progresion) {
 
 function addBookToLibrary() {
     myLibrary.push(new Book(title, author, pages, progresion))
+    
     console.log(myLibrary[0]);
 };
 
 function clearFormData() {
-    document.querySelector("#book-title").innerHTML = "";
-    document.querySelector("#book-author").innerHTML = "";
-    document.querySelector("#book-pages").innerHTML = "";
-    document.querySelector("#book-progress").innerHTML = "";
+    document.querySelector("#book-title").value = "";
+    document.querySelector("#book-author").value = "";
+    document.querySelector("#book-pages").value = "";
+    document.querySelector("#book-progress").value = "";
 }
 
 
@@ -86,6 +88,7 @@ submitBtn.addEventListener("click", formButtonClick, false);
     function formButtonClick(event) {
         event.preventDefault();
         addBookToLibrary();
+        libraryBookIteration();
         
     };
 
