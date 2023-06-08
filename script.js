@@ -72,7 +72,8 @@ function bookCard(title, author, pages, progression) {
                     const isChecked = event.target.checked;
                     const formCheckbox = document.querySelector("#book-progress");
                         formCheckbox.checked = isChecked;
-        });
+                });
+            
 };
 
 
