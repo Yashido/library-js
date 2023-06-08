@@ -16,8 +16,24 @@ let myLibrary = [
 ];
 
 function libraryBookIteration() {
-    myLibrary.forEach((book) => bookCard(book.title, book.author, book.pages, book.progression));
-}
+    myLibrary.forEach((book) => {
+      const existingBookCard = findBookCardByTitle(book.title);
+      if (!existingBookCard) {
+        bookCard(book.title, book.author, book.pages, book.progression);
+      }
+    });
+  }
+  
+  function findBookCardByTitle(title) {
+    const bookCards = document.getElementsByClassName("book-card-title");
+    for (let i = 0; i < bookCards.length; i++) {
+      if (bookCards[i].textContent === title) {
+        return bookCards[i].parentNode;
+      }
+    }
+    return null;
+  }
+  
 
 function bookCard(title, author, pages, progression) {
         const newDiv = document.createElement("div");
@@ -86,6 +102,7 @@ function formButtonClick(event) {
     addBookToLibrary();
     libraryBookIteration();
     clearFormData();
+    dialog.close()
 }
 
 function removeModal(event) {
