@@ -71,6 +71,8 @@ body {
                 box-sizing: border-box;
                 margin: 0;
             }
+
+            .book-card-progress-switch
                 .book-card-progress {
                     display: flex;
                     box-sizing: border-box;

@@ -61,13 +61,18 @@ function bookCard(title, author, pages, progression) {
             bookProgressLabelElement.classList.add("book-card-read");
                 bookProgressLabelElement.appendChild(document.createTextNode("Read"));
                     bookCardDiv.appendChild(bookProgressLabelElement);
+
         const bookProgressElement = document.createElement("label");
+            bookProgressElement.classList.add("book-card-progress-switch");
         const bookProgressCheckboxElement = document.createElement("input");
             bookProgressCheckboxElement.setAttribute("type", "checkbox");
                 bookProgressCheckboxElement.setAttribute("value", progression);
                     bookProgressElement.classList.add("book-card-progress");
                         bookCardDiv.appendChild(bookProgressElement);
                             bookProgressElement.appendChild(bookProgressCheckboxElement);
+        const bookProgressCheckboxSpan = document.createElement("span");
+                
+
                 bookProgressCheckboxElement.addEventListener("change", (event) => {
                     const isChecked = event.target.checked;
                     const formCheckbox = document.querySelector("#book-progress");
