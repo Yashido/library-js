@@ -72,9 +72,12 @@ body {
                 margin: 0;
             }
 
-            .book-card-progress-switch
+            .book-card-progress-switch {
+                
+            }
                 .book-card-progress {
                     display: flex;
+                    flex-direction: row;
                     box-sizing: border-box;
                 }
 
