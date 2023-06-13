@@ -11,7 +11,7 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
-        progression: true
+        progression: checked
     }
 ];
 
@@ -66,6 +66,9 @@ function bookCard(title, author, pages, progression) {
             bookProgressElement.classList.add("book-card-progress-switch");
         const bookProgressCheckboxElement = document.createElement("input");
             bookProgressCheckboxElement.setAttribute("type", "checkbox");
+
+
+
                 bookProgressCheckboxElement.setAttribute("value", progression);
                     bookProgressElement.classList.add("book-card-progress");
                         bookCardDiv.appendChild(bookProgressElement);
@@ -73,13 +76,16 @@ function bookCard(title, author, pages, progression) {
         const bookProgressCheckboxSpan = document.createElement("span");
                 
 
-                bookProgressCheckboxElement.addEventListener("change", (event) => {
-                    const isChecked = event.target.checked;
-                    const formCheckbox = document.querySelector("#book-progress");
-                        formCheckbox.checked = isChecked;
-                });
+                
+               
             
 };
+
+bookProgressCheckboxElement.addEventListener("change", (event) => {
+    const isChecked = event.target.checked;
+    const formCheckbox = document.querySelector("#book-progress");
+        formCheckbox.checked = isChecked;
+});
 
 
 function Book(title, author, pages, progression) {
