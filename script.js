@@ -38,6 +38,7 @@ function findBookCardByTitle(title) {
 function bookCard(title, author, pages, progression) {
         const newDiv = document.createElement("div");
             newDiv.classList.add("book-card-container");
+            newDiv.classList.add("data-" + title)
                 mainContainer.appendChild(newDiv);
         const bookTitleElement = document.createElement("h5");
         const bookTitle = document.createTextNode(title);
@@ -69,22 +70,31 @@ function bookCard(title, author, pages, progression) {
 
 
 
-                bookProgressCheckboxElement.setAttribute("value", progression);
+                bookProgressCheckboxElement.setAttribute(progression);
                     bookProgressElement.classList.add("book-card-progress");
                         bookCardDiv.appendChild(bookProgressElement);
                             bookProgressElement.appendChild(bookProgressCheckboxElement);
         const bookProgressCheckboxSpan = document.createElement("span");
                 
 
-                
-               
-            
 };
 
 bookProgressCheckboxElement.addEventListener("change", (event) => {
     const isChecked = event.target.checked;
     const formCheckbox = document.querySelector("#book-progress");
+        if(formCheckbox.checked = isChecked) {
+            for(let x = 0; i < cardContainers.length; i++) {
+                if(cardTitle === title) {
+                    formCheckbox.classList.add("checked")
+                } else {
+                    return;
+                }
+            }
+        } else {
+            return;
+        }
         formCheckbox.checked = isChecked;
+
 });
 
 
