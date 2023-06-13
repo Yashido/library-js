@@ -93,7 +93,7 @@ bookProgressCheckboxElement.addEventListener("change", (event) => {
         } else {
             return;
         }
-        formCheckbox.checked = isChecked;
+        formCheckbox.checked = isChecked;zzzzzz
 
 });
 
