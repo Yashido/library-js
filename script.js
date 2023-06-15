@@ -68,8 +68,6 @@ function bookCard(title, author, pages, progression) {
         const bookProgressCheckboxElement = document.createElement("input");
             bookProgressCheckboxElement.setAttribute("type", "checkbox");
 
-
-
                 bookProgressCheckboxElement.setAttribute(progression);
                     bookProgressElement.classList.add("book-card-progress");
                         bookCardDiv.appendChild(bookProgressElement);
