@@ -14,10 +14,11 @@ let libraryIndex = currentLibraryIndex;
 let currentLibraryIndex = myLibrary.length;
 
 function libraryIndexCounter() {
-    myLibrary.forEach((book) => {
-        const existingBookCard = findBookCardByTitle(book.title);
-        const existingBookIndex = findBookCardByIndex(book.index)
-    });
+    if(myLibrary.length === '') {
+        return 0;
+    } else if(myLibrary != 0) {
+        return libraryIndex++;
+    }
 };
 
 function findBookCardByTitle(title) {
@@ -53,7 +54,7 @@ function libraryBookIteration() {
   function bookCard(title, author, pages, progression) {
     const newDiv = document.createElement("div");
         newDiv.classList.add("book-card-container");
-        newDiv.classList.add("data-" + title)
+        newDiv.classList.add("data-Index=" + "\"" + libraryIndexAddition + "\"");
             mainContainer.appendChild(newDiv);
     const bookTitleElement = document.createElement("h5");
     const bookTitle = document.createTextNode(title);
