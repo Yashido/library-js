@@ -11,7 +11,7 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
-        progression: checked
+        progression: true
     }
 ];
 
@@ -91,7 +91,7 @@ bookProgressCheckboxElement.addEventListener("change", (event) => {
         } else {
             return;
         }
-        formCheckbox.checked = isChecked;zzzzzz
+        formCheckbox.checked = isChecked;
 
 });
 
