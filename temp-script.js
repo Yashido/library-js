@@ -93,6 +93,12 @@ function libraryBookIteration() {
 
 };
 
+function searchLibraryArray(myLibrary, title) {
+    for(let i = 0; i < cardContainer.length; i++) {
+        
+    }
+}
+
 function formButtonClick(event) {
     event.preventDefault();
     addBookToLibrary();
