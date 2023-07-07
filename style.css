@@ -121,7 +121,7 @@ body {
     #dialog-container::backdrop {
         background-color: rgb(0, 0, 0, 0.4);
     }
-        .book-submission {
+        .book-submission-form {
             display: flex;
             flex-direction: column;
             gap: 10px;
