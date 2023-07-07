@@ -1,4 +1,4 @@
-const mainContainer = document.getElementsByClassName("main-container");
+const mainContainer = document.getElementsByClassName("main-container")[0];
 const dialogContainer = document.getElementById("dialog-container");
 const form = document.getElementById("book-submission-form");
 
@@ -18,34 +18,35 @@ function Book(title, author, pages) {
     this.title = title,
     this.author = author,
     this.pages = pages
-};
+}
 
 function libraryIteration() {
     myLibrary.forEach((book) => {
         const existingBookCard = findBookCardByTitle(book.title);
 
-        if(!existingBookCard) {
+        if (!existingBookCard) {
             bookCard(book.title, book.author, book.pages);
         } else {
-          alert("Book already exist!");
+            console.log("Book already exists!");
         }
     });
-};
+}
 
 function findBookCardByTitle(title) {
     const bookCards = document.getElementsByClassName("book-card-title");
-        for (let i = 0; i < bookCards.length; i++) {
-            if (bookCards[i].textContent === title) {
-                return bookCards[i].parentNode;
-                }
-            }
-                return null;
-  }
+    for (let i = 0; i < bookCards.length; i++) {
+        if (bookCards[i].textContent === title) {
+            return bookCards[i].parentNode;
+        }
+    }
+    return null;
+}
 
-
-function bookCard(title, author, pages, progression) {
-    const newDiv = document.createElement("div");
-        mainContainer.appendChild("newDiv");
-};
+function bookCard(title, author, pages) {
+    var newDiv = document.createElement("div");
+    newDiv.classList.add("book-card-container");
+    newDiv.appendChild(document.createTextNode("newDiv"));
+    mainContainer.appendChild(newDiv);
+}
 
 libraryIteration();
