@@ -1,3 +1,4 @@
+/*
 const mainContainer = document.getElementsByClassName("main-container");
 
 const dialogContainer = document.getElementById("dialog-container");
@@ -6,7 +7,7 @@ const form = document.getElementsByClassName("book-submission");
 const modalBtn = document.querySelector("dialog-button");
 const cancelBtn = document.querySelector("#form-cancel");
 const submitBtn = document.querySelector("#form-submit");
-
+*/
 
 let myLibrary = [];
 
