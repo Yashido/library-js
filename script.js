@@ -1,4 +1,4 @@
-const mainContainer = document.getElementsByClassName("main-container")[0];
+const mainContainer = document.getElementById("main-container");
 const dialogContainer = document.getElementById("dialog-container");
 const form = document.getElementById("book-submission-form");
 
