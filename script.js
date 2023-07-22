@@ -44,9 +44,10 @@ function findBookCardByTitle(title) {
 
 function bookCard(title, author, pages) {
     var newDiv = document.createElement("div");
-    newDiv.classList.add("book-card-container");
-    newDiv.appendChild(document.createTextNode("newDiv"));
-    mainContainer.appendChild(newDiv);
+        newDiv.classList.add("book-card-container");
+        newDiv.appendChild(document.createTextNode(title));
+            mainContainer.appendChild(newDiv);
+    
 }
 
 libraryIteration();
