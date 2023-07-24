@@ -11,6 +11,11 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
+    },
+    {
+        title: "The Bobbit",
+        author: "J. R. R. Tolkien",
+        pages: 300,
     }
 ];
 
@@ -51,6 +56,16 @@ function bookCard(title, author, pages) {
         bookTitleElement.classList.add("book-card-title");
             newDiv.appendChild(bookTitleElement);
                 bookTitleElement.appendChild(bookTitle);
+    const bookAuthorElement = document.createElement("h5");
+    const bookAuthor = document.createTextNode(author);
+        bookAuthorElement.classList.add("book-card-author");
+            newDiv.appendChild(bookAuthorElement);
+                bookAuthorElement.appendChild(bookAuthor);
+    const bookPagesElement = document.createElement("h5");
+    const bookPages = document.createTextNode(pages);
+            bookPagesElement.classList.add("book-card-pages");
+                newDiv.appendChild(bookPagesElement);
+                    bookPagesElement.appendChild(bookPages);
 }
 
 libraryIteration();
