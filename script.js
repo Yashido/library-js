@@ -105,9 +105,9 @@ function addBookToLibrary() {
     let title = document.querySelector("#book-title").value;
     let author = document.querySelector("#book-author").value;
     let pages = document.querySelector("#book-pages").value;
-    let progression = document.querySelector("#book-progress").value;
-    myLibrary.push(new Book(title, author, pages, progression));
-    bookCard(title, author, pages, progression);
+    
+    myLibrary.push(new Book(title, author, pages));
+    bookCard(title, author, pages);
     console.log(myLibrary[myLibrary.length - 1]);
 };
 
