@@ -245,7 +245,7 @@ function showDialogModal(event) {
 
 function formButtonClick(event) {
     event.preventDefault();
-    addBookToLibrary();
+    addBookToLibrary();H
     libraryBookIteration();
     clearFormData();
     console.log("Dialog should close")

@@ -68,4 +68,30 @@ function bookCard(title, author, pages) {
                     bookPagesElement.appendChild(bookPages);
 }
 
+// Form buttons and functions
+
+modalBtn.addEventListener("click", showDialogModal);
+submitBtn.addEventListener("click", formButtonClick);
+cancelBtn.addEventListener("click", removeModal);
+
+function showDialogModal(event) {
+    dialogContainer.showModal();
+    submitBtn.addEventListener("click", formButtonClick, { once: true });
+    cancelBtn.addEventListener("click", removeModal, { once: true });
+};
+
+function removeModal(event) {
+    event.preventDefault();
+    dialogContainer.close();
+};
+
+function formButtonClick(event) {
+    event.preventDefault();
+    addBookToLibrary();H
+    libraryBookIteration();
+    clearFormData();
+    console.log("Dialog should close")
+    dialogContainer.close();
+};
+
 libraryIteration();
