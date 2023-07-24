@@ -87,11 +87,18 @@ function removeModal(event) {
 
 function formButtonClick(event) {
     event.preventDefault();
-    addBookToLibrary();H
-    libraryBookIteration();
+    addBookToLibrary();
+    libraryIteration();
     clearFormData();
     console.log("Dialog should close")
     dialogContainer.close();
+};
+
+function clearFormData() {
+    document.querySelector("#book-title").value = "";
+    document.querySelector("#book-author").value = "";
+    document.querySelector("#book-pages").value = "";
+    document.querySelector("#book-progress").value = "";
 };
 
 function addBookToLibrary() {
