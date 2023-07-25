@@ -85,6 +85,10 @@ body {
                 background-color: rgb(243, 243, 243);
             }
 
+            .delete-button:hover {
+                background-color: red;
+            }
+
             .book-card-progress-switch {
                 
             }
