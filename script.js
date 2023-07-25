@@ -48,10 +48,14 @@ function findBookCardByTitle(title) {
 }
 
 function bookCard(title, author, pages) {
-    const newDiv = document.createElement("div");
-        newDiv.classList.add("book-card-container");
-            mainContainer.appendChild(newDiv);
-    const bookTitleElement = document.createElement("h4");
+    const bookCardDiv = document.createElement("div");
+        bookCardDiv.classList.add("book-card-container");
+            mainContainer.appendChild(bookCardDiv);
+
+    const bookCardTitleDiv = document.createElement("div");
+        bookCardTitleDiv.classList.add("")
+    
+    const bookTitleElement = document.createElement("h3");
     const bookTitle = document.createTextNode(title);
         bookTitleElement.classList.add("book-card-title");
             newDiv.appendChild(bookTitleElement);
