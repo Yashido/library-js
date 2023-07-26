@@ -72,7 +72,7 @@ body {
                 margin: 0;
             }
 
-            .book-card-title-div {
+            .book-card-title-delete-div {
                 display: flex;
                 justify-content: space-between;
             }

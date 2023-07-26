@@ -52,13 +52,14 @@ function bookCard(title, author, pages) {
         bookCardDiv.classList.add("book-card-container");
             mainContainer.appendChild(bookCardDiv);
 
-    const bookCardTitleDiv = document.createElement("div");
-        bookCardTitleDiv.classList.add("")
+    const bookCardTitleDeleteDiv = document.createElement("div");
+        bookCardTitleDeleteDiv.classList.add("book-card-title-delete-div");
+            bookCard.appendChild(bookCardTitleDeleteDiv);
     
     const bookTitleElement = document.createElement("h3");
     const bookTitle = document.createTextNode(title);
         bookTitleElement.classList.add("book-card-title");
-            newDiv.appendChild(bookTitleElement);
+            bookCardTitleDeleteDiv.appendChild(bookTitleElement);
                 bookTitleElement.appendChild(bookTitle);
     const bookAuthorElement = document.createElement("h5");
     const bookAuthor = document.createTextNode(author);
