@@ -61,6 +61,7 @@ function bookCard(title, author, pages) {
         bookTitleElement.classList.add("book-card-title");
             bookCardTitleDeleteDiv.appendChild(bookTitleElement);
                 bookTitleElement.appendChild(bookTitle);
+                
     const bookAuthorElement = document.createElement("h5");
     const bookAuthor = document.createTextNode(author);
         bookAuthorElement.classList.add("book-card-author");
