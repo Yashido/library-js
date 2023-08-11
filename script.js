@@ -54,7 +54,7 @@ function bookCard(title, author, pages) {
 
     const bookCardTitleDeleteDiv = document.createElement("div");
         bookCardTitleDeleteDiv.classList.add("book-card-title-delete-div");
-            bookCard.appendChild(bookCardTitleDeleteDiv);
+            bookCardDiv.appendChild(bookCardTitleDeleteDiv);
     
     const bookTitleElement = document.createElement("h3");
     const bookTitle = document.createTextNode(title);
@@ -65,12 +65,12 @@ function bookCard(title, author, pages) {
     const bookAuthorElement = document.createElement("h5");
     const bookAuthor = document.createTextNode(author);
         bookAuthorElement.classList.add("book-card-author");
-            newDiv.appendChild(bookAuthorElement);
+            bookCardDiv.appendChild(bookAuthorElement);
                 bookAuthorElement.appendChild(bookAuthor);
     const bookPagesElement = document.createElement("h5");
     const bookPages = document.createTextNode(pages);
             bookPagesElement.classList.add("book-card-pages");
-                newDiv.appendChild(bookPagesElement);
+                bookCardDiv.appendChild(bookPagesElement);
                     bookPagesElement.appendChild(bookPages);
 }
 
@@ -117,4 +117,4 @@ function addBookToLibrary() {
     console.log(myLibrary[myLibrary.length - 1]);
 };
 
-// libraryIteration();
+libraryIteration();
