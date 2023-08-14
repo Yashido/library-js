@@ -47,6 +47,20 @@ function findBookCardByTitle(title) {
     return null;
 }
 
+function removeBook(title) {
+    console.log("remove");
+    const cardContainers = document.getElementsByClassName("book-card-container");
+    for (let i = 0; i < cardContainers.length; i++) {
+      const card = cardContainers[i];
+      const cardTitle = card.querySelector(".book-card-title").textContent;
+      if (cardTitle === title) {
+        card.remove();
+        break;
+      }
+    }
+    myLibrary = myLibrary.filter((book) => book.title !== title);
+  }
+
 function bookCard(title, author, pages) {
     const bookCardDiv = document.createElement("div");
         bookCardDiv.classList.add("book-card-container");
