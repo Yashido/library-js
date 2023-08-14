@@ -72,21 +72,25 @@ function removeBook(title) {
         const cardTitle = card.querySelector(".book-card-title").textContent;
             if(cardTitle === title) {
                 if(progress === true) {
-                    bookCardReadCheckbox.classList.add("checked");
+                    formCheckbox.setAttribute("checked", "checked");
                 } else {
-                    bookCardReadCheckbox.classList.remove("checked");
+                    formCheckbox.setAttribute("checked", " ");
                 }
             }
     }
   };
 
-  function ProgressCheck(progress) {
-    if(progress === true) {
-        return  bookCardReadCheckbox.setAttribute(checked);
-    } else {
-        return;
+  function bookProgressCheckbox(title, progress) {
+    const cardContainers = document.getElementsByClassName("book-card-container");
+    for (let i = 0; i < cardContainers.length; i++) {
+        const card = cardContainers[i];
+        const cardTitle = card.querySelector(".book-card-title").textContent;
+        if (cardTitle === title) {
+            const formCheckbox = card.querySelector(".book-card-progress input[type='checkbox']");
+            formCheckbox.checked = progress === "true";
+        }
     }
-  };
+};
 
 function bookCard(title, author, pages, progress) {
     const bookCardDiv = document.createElement("div");
@@ -134,13 +138,9 @@ function bookCard(title, author, pages, progress) {
                     const bookCardRead = document.createTextNode("Read");
                         bookCardReadSection.appendChild(bookCardRead);
 
-        const bookCardReadCheckbox = document.createElement("input");
-        bookCardReadCheckbox.type = "checkbox";
-        ProgressCheck(progress);
-        bookCardReadCheckbox.addEventListener("click", function () {
-            bookProgressCheckbox(title, progress);
-        })
-        bookCardProgressDiv.append(bookCardReadCheckbox);
+                     const bookCardReadCheckbox = document.createElement("input");
+                        bookCardReadCheckbox.type = "checkbox";
+                        bookCardReadCheckbox.checked = progress;
 };
 
 // Form wrapper
@@ -180,7 +180,8 @@ function addBookToLibrary() {
     let title = document.querySelector("#book-title").value;
     let author = document.querySelector("#book-author").value;
     let pages = document.querySelector("#book-pages").value;
-    let progress = document.querySelector("#book-progress").value;
+    let progress = document.querySelector("input[name='book-progress']").checked;
+
     
     myLibrary.push(new Book(title, author, pages, progress));
     bookCard(title, author, pages, progress);
