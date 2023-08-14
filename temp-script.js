@@ -282,3 +282,11 @@ function removeBook(title) {
     myLibrary = myLibrary.filter((book) => book.title !== title);
   }
   
+  //ADD THIS TO MAIN
+  var inputElement = document.createElement('input');
+inputElement.type = "button"
+inputElement.addEventListener('click', function(){
+    gotoNode(result.name);
+});
+
+​document.body.appendChild(inputElement);​

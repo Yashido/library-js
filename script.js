@@ -78,7 +78,7 @@ function bookCard(title, author, pages) {
 
     const bookCardDeleteBtn = document.createElement("input");
         bookCardDeleteBtn.classList.add("delete-button");
-            bookCardDeleteBtn.setAttribute("type", "button");
+            bookCardDeleteBtn.setAttribute("type", "button", "onclick=('title')");
                 bookCardTitleDeleteDiv.append(bookCardDeleteBtn);
                 
     const bookAuthorElement = document.createElement("h5");
