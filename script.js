@@ -11,18 +11,21 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
+        progress: true
     },
     {
         title: "The Bobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
+        progress: true
     }
 ];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, progress) {
     this.title = title,
     this.author = author,
-    this.pages = pages
+    this.pages = pages,
+    this.progress = progress
 }
 
 function libraryIteration() {
@@ -97,6 +100,16 @@ function bookCard(title, author, pages) {
             bookPagesElement.classList.add("book-card-pages");
                 bookCardDiv.appendChild(bookPagesElement);
                     bookPagesElement.appendChild(bookPages);
+
+    const bookCardProgressDiv = document.createElement("div");
+        bookCardProgressDiv.classList.add("book-card-progress");
+            bookCardDiv.appendChild(bookCardProgressDiv);
+        const bookCardReadSection = document.createElement("h5");
+            bookCardReadSection.classList.add("book-card-read");
+                bookCardProgressDiv.appendChild(bookCardReadSection);
+                    const bookCardRead = document.createTextNode("Read");
+                        bookCardReadSection.appendChild(bookCardRead);
+
 }
 
 // Form wrapper
@@ -136,6 +149,7 @@ function addBookToLibrary() {
     let title = document.querySelector("#book-title").value;
     let author = document.querySelector("#book-author").value;
     let pages = document.querySelector("#book-pages").value;
+    let progress = document.querySelector("#book-progress").value;
     
     myLibrary.push(new Book(title, author, pages));
     bookCard(title, author, pages);
