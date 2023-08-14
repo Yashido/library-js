@@ -93,7 +93,7 @@ function bookCard(title, author, pages) {
             bookCardDiv.appendChild(bookAuthorElement);
                 bookAuthorElement.appendChild(bookAuthor);
     const bookPagesElement = document.createElement("h5");
-    const bookPages = document.createTextNode(pages);
+    const bookPages = document.createTextNode(`Pp. ${pages}`);
             bookPagesElement.classList.add("book-card-pages");
                 bookCardDiv.appendChild(bookPagesElement);
                     bookPagesElement.appendChild(bookPages);
