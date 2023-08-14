@@ -11,13 +11,13 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
-        progress: true
+        progress: "false"
     },
     {
         title: "The Bobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
-        progress: true
+        progress: "true"
     }
 ];
 
@@ -26,7 +26,7 @@ function Book(title, author, pages, progress) {
     this.author = author,
     this.pages = pages,
     this.progress = progress
-}
+};
 
 function libraryIteration() {
     myLibrary.forEach((book) => {
@@ -38,7 +38,7 @@ function libraryIteration() {
             console.log("Book already exists!");
         }
     });
-}
+};
 
 function findBookCardByTitle(title) {
     const bookCards = document.getElementsByClassName("book-card-title");
@@ -48,7 +48,7 @@ function findBookCardByTitle(title) {
         }
     }
     return null;
-}
+};
 
 function removeBook(title) {
     console.log("remove");
@@ -62,9 +62,33 @@ function removeBook(title) {
       }
     }
     myLibrary = myLibrary.filter((book) => book.title !== title);
-  }
+  };
 
-function bookCard(title, author, pages) {
+  function bookProgressCheckbox(title, progress) {
+    const cardContainers = document.getElementsByClassName("book-card-container");
+    const formCheckbox = document.querySelector("#book-progress");
+    for (let i = 0; i < cardContainers.length; i++) {
+        const card = cardContainers[i];
+        const cardTitle = card.querySelector(".book-card-title").textContent;
+            if(cardTitle === title) {
+                if(progress === true) {
+                    bookCardReadCheckbox.classList.add("checked");
+                } else {
+                    bookCardReadCheckbox.classList.remove("checked");
+                }
+            }
+    }
+  };
+
+  function ProgressCheck(progress) {
+    if(progress === true) {
+        return  bookCardReadCheckbox.setAttribute(checked);
+    } else {
+        return;
+    }
+  };
+
+function bookCard(title, author, pages, progress) {
     const bookCardDiv = document.createElement("div");
         bookCardDiv.classList.add("book-card-container");
             mainContainer.appendChild(bookCardDiv);
@@ -110,7 +134,14 @@ function bookCard(title, author, pages) {
                     const bookCardRead = document.createTextNode("Read");
                         bookCardReadSection.appendChild(bookCardRead);
 
-}
+        const bookCardReadCheckbox = document.createElement("input");
+        bookCardReadCheckbox.type = "checkbox";
+        ProgressCheck(progress);
+        bookCardReadCheckbox.addEventListener("click", function () {
+            bookProgressCheckbox(title, progress);
+        })
+        bookCardProgressDiv.append(bookCardReadCheckbox);
+};
 
 // Form wrapper
 
@@ -151,8 +182,8 @@ function addBookToLibrary() {
     let pages = document.querySelector("#book-pages").value;
     let progress = document.querySelector("#book-progress").value;
     
-    myLibrary.push(new Book(title, author, pages));
-    bookCard(title, author, pages);
+    myLibrary.push(new Book(title, author, pages, progress));
+    bookCard(title, author, pages, progress);
     console.log(myLibrary[myLibrary.length - 1]);
 };
 
