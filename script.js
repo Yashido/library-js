@@ -11,13 +11,13 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
-        progress: "false"
+        progress: true
     },
     {
         title: "The Bobbit",
         author: "J. R. R. Tolkien",
         pages: 300,
-        progress: "true"
+        progress: false
     }
 ];
 
@@ -29,6 +29,7 @@ function Book(title, author, pages, progress) {
 };
 
 function libraryIteration() {
+    console.log("Lib");
     myLibrary.forEach((book) => {
         const existingBookCard = findBookCardByTitle(book.title);
 
@@ -37,6 +38,7 @@ function libraryIteration() {
         } else {
             console.log("Book already exists!");
         }
+        bookProgressCheckbox(book.title, book.progress);
     });
 };
 
@@ -65,30 +67,11 @@ function removeBook(title) {
   };
 
   function bookProgressCheckbox(title, progress) {
-    const cardContainers = document.getElementsByClassName("book-card-container");
-    const formCheckbox = document.querySelector("#book-progress");
-    for (let i = 0; i < cardContainers.length; i++) {
-        const card = cardContainers[i];
-        const cardTitle = card.querySelector(".book-card-title").textContent;
-            if(cardTitle === title) {
-                if(progress === true) {
-                    formCheckbox.setAttribute("checked", "checked");
-                } else {
-                    formCheckbox.setAttribute("checked", " ");
-                }
-            }
-    }
-  };
+    const checkboxId = `progress-${title.replace(/\s+/g, "-").toLowerCase()}`;
+    const formCheckbox = document.getElementById(checkboxId);
 
-  function bookProgressCheckbox(title, progress) {
-    const cardContainers = document.getElementsByClassName("book-card-container");
-    for (let i = 0; i < cardContainers.length; i++) {
-        const card = cardContainers[i];
-        const cardTitle = card.querySelector(".book-card-title").textContent;
-        if (cardTitle === title) {
-            const formCheckbox = card.querySelector(".book-card-progress input[type='checkbox']");
-            formCheckbox.checked = progress === "true";
-        }
+    if (formCheckbox) {
+        formCheckbox.checked = progress === true;
     }
 };
 
@@ -114,10 +97,6 @@ function bookCard(title, author, pages, progress) {
             removeBook(title);
         })
         bookCardTitleDeleteDiv.append(bookCardDeleteBtn);
-        /*
-            bookCardDeleteBtn.setAttribute("type", "button", "onclick=('title')");
-                bookCardTitleDeleteDiv.append(bookCardDeleteBtn);
-        */      
     const bookAuthorElement = document.createElement("h5");
     const bookAuthor = document.createTextNode(author);
         bookAuthorElement.classList.add("book-card-author");
@@ -137,10 +116,11 @@ function bookCard(title, author, pages, progress) {
                 bookCardProgressDiv.appendChild(bookCardReadSection);
                     const bookCardRead = document.createTextNode("Read");
                         bookCardReadSection.appendChild(bookCardRead);
-
-                     const bookCardReadCheckbox = document.createElement("input");
-                        bookCardReadCheckbox.type = "checkbox";
-                        bookCardReadCheckbox.checked = progress;
+                    const bookCardReadCheckbox = document.createElement("input");
+                            bookCardReadCheckbox.type = "checkbox";
+                             bookCardReadCheckbox.id = `progress-${title.replace(/\s+/g, "-").toLowerCase()}`; // Example ID generation
+                            bookCardReadCheckbox.checked = progress;
+                            bookCardProgressDiv.appendChild(bookCardReadCheckbox);
 };
 
 // Form wrapper
@@ -173,7 +153,7 @@ function clearFormData() {
     document.querySelector("#book-title").value = "";
     document.querySelector("#book-author").value = "";
     document.querySelector("#book-pages").value = "";
-    document.querySelector("#book-progress").value = "";
+    document.querySelector("#book-progress").checked = false;
 };
 
 function addBookToLibrary() {
