@@ -14,11 +14,35 @@ let myLibrary = [
         progress: true
     },
     {
-        title: "The Bobbit",
-        author: "J. R. R. Tolkien",
-        pages: 300,
+        title: "The Martian",
+        author: "Andy Weir",
+        pages: 387,
         progress: false
-    }
+    },
+	{
+		title: "The Alchemist",
+        author: "Paulo Coelho",
+        pages: 163,
+        progress: true
+	},
+	{
+		title: "The Way of Shadows",
+        author: "Brent Weeks",
+        pages: 688,
+        progress: true
+	},
+	{
+		title: "World War Z",
+        author: "Max Brooks",
+        pages: 342,
+        progress: false
+	},
+	{
+		title: "The Pragmatic Programmer",
+        author: "Andy Hunt, Dave Thomas",
+        pages: 320,
+        progress: false
+	}
 ];
 
 function Book(title, author, pages, progress) {
